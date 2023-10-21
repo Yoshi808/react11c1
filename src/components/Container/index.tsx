@@ -1,5 +1,5 @@
 interface IProps{
-    children: any;
+    children: JSX.Element;
 }
 
 function Container(props: IProps) {
