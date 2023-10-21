@@ -1,6 +1,14 @@
-.wrapper{
-    background-color: rgb(186, 249, 228);
-    color: blueviolet;
+.light,.dark{
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.light{
+    background-color: rgb(186, 249, 228);
+    color: blueviolet;
+}
+
+.dark{
+    background-color: blueviolet;
+    color: rgb(186, 249, 228);
 }
