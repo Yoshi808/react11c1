@@ -11,54 +11,70 @@ function App() {
   const role = 'Frontend'
   const experience = 4
 
-  const [count, setCount] = useState(1) //!0 => valor inicial
+  // let counter = 0;
+  const [count, setCount] = useState(1) //! EL 0 ES EL VALOR INICIAL
   const [user, setUser] = useState({
     "userId": 0,
     "id": 0,
     "title": "",
     "completed": false
-  })
+  }
+  ) //! EL 0 ES EL VALOR INICIAL
+
 
   useEffect(() => {
-    //! EJECUTA
+    //!EJECUTA
     fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
       .then(response => response.json())
       .then(json => {
         setUser(json)
-    })
+      })
 
-    const interval = setInterval( ()=> {
-      console.log('INTERVAL')
-    }, 1000)
+      const interval = setInterval( ()=> {
+        console.log('INTERVAL')
+      } ,1000 )
+
     return () => {
       console.log('LIMPIADO')
       clearInterval(interval)
       //! SE EJECUTA CUANDO EL COMPONENTE SE MUERE
-      //! LIMPIAR EVENTOS QUE GENEREN PÉRDIDA DE MEMORIA =======> setInterval  
+      //! LIMPIAR EVENTOS QUE GENEREN PERDIDA DE MEMORIA =====> setInterval
     }
-
-    }, [count])//! ESCUCHA A LAS VARIABLES
+  }, [count])//! ESCUCHA A LAS VARIABLES
   
-  function subtractCounter() {
-    setCount(count-1);
+
+
+
+  function addCounter(){
+    setCount(count+1) //!count = count+1
   }
 
   return (
    <React.Fragment>
-      <Landing name={name} role={role} experience={experience}  count={count} setCount={setCount}/>
+      <Landing name={name} role={role} experience={experience} count={count} setCount={setCount} />
       <Card title={title} age={20} />
 
       <hr /><hr />
-      <button onClick={subtractCounter}>Click: subtract a counter</button>
+
+      <h3>{count}</h3>
+      {/* <button onClick={ () => { 
+        addCounter() 
+        } }>click</button> */}
+
+      <button onClick={ addCounter }>click</button>
 
       <hr /><hr /><hr />
       {user.title}
 
-      {count >= 19 ? <div>Se llegó a 19</div> : <div>No se llega</div>}
-    
+
+      {/* { count >= 19 && <div>SE LLEGO A 19</div>  } */}
+      { count >= 19 ? <div>SE LLEGO A 19</div> : <div>aun no se llega</div> }
+
       <hr /><hr /><hr />
-      <Container>
-        <h1>Hola amigos</h1>
+      
+
+      <Container >
+          Hola amigos
       </Container>
 
    </React.Fragment>
