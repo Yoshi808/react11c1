@@ -74,7 +74,7 @@ function App() {
       
 
       <Container >
-          <h1>Hola amigos</h1>
+          <div>Hola amigos</div>
       </Container>
 
    </React.Fragment>
